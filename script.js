@@ -5,6 +5,8 @@ window.addEventListener("load", function () {
     elemekElerese4();
     elemekFormazasa();
     esemenykezeles();
+    esemenykezeles2();
+    esemenykezeles4();
 });
 
 function elemekElerese1() {
@@ -45,6 +47,37 @@ function esemenykezeles() {
 }
 function atrakas(){
     let listaElem = document.getElementsByClassName("lista");
-    listaElem.innerHTML = " ";
-
+    let kattintasDiv = document.getElementsByClassName("kattintasutan");
+    kattintasDiv[0].innerHTML = listaElem[0].innerHTML;
     }
+function esemenykezeles2(){
+    let gomb = document.getElementsByClassName("feladat");
+    gomb[0].innerHTML = "<button>OK</button>"
+    gomb[0].addEventListener("click", divHozzaadas);
+}
+function divHozzaadas(){
+    let divElem = document.getElementsByClassName("feladat");
+    divElem[0].innerHTML += "<div><img src='java.jpg' ></div>";
+
+    let kep = document.querySelector("img:last-child");
+
+    kep.addEventListener("mouseover", function() {
+        kep.style.width = "200px";
+    });
+
+    kep.addEventListener("mouseout", function() {
+        kep.style.width = "100%";
+    });
+}
+function esemenykezeles4() {
+    let divs = document.getElementsByClassName("elem");
+
+    for (let i = 0; i < divs.length; i++) {
+        divs[i].addEventListener("click", function(event) {
+            let tartalom = event.target.innerHTML;
+
+            let megjelenito = document.getElementsByClassName("megjelenito");
+            megjelenito[0].innerHTML = tartalom;
+        });
+    }
+}
